@@ -27,6 +27,8 @@ shinyUI(fluidPage(
                     "Masters" = " Masters",
                     "Assoc-voc" = " Assoc-voc",
                     "Doctorate" = " Doctorate",
+                    "Assoc Academic" = " Assoc-acdm",
+                    "Professional School" = " Prof-school",
                     "Masters" = " Masters")),
       selectInput("marStat", " Marital Status:",
                   c("Divorced" = " Divorced",
@@ -35,16 +37,19 @@ shinyUI(fluidPage(
                     "Never Married" = " Never-married",
                     "Separated" = " Separated",
                     "Widowed" = " Widowed")),
-      selectInput("occupation", " Craft-repair",
+      selectInput("occupation", " Occupation",
                   c("Proffesional Specialty" = " Prof-specialty",
                     "Manegerial Exec" = " Exec-managerial",
                     "Adm-clerical" = " Adm-clerical",
+                    "Craft-repair" = " Craft-repair",
+                    "Machine Operation/Inspection" = " Machine-op-inspct",
                     "Sales" = " Sales",
                     "Armed-Forces" = " Armed-Forces",
                     "Farming-fishing" = " Farming-fishing",
                     "Handlers-cleaners" = " Handlers-cleaners",
                     "Protective services" = " Protective-serv",
-                    "Sales" = " Sales",
+                    "Private House Servent" = " Priv-house-serv",
+                    "Transportation" = " Transport-moving",
                     "Tech-support" = " Tech-support",
                     "Other Services" = " Other-service")),
       selectInput("relationship", " Relationship",
@@ -57,6 +62,8 @@ shinyUI(fluidPage(
       selectInput("Race", "Race",
                   c("White" = " White",
                     "African-American" = " Black",
+                    "American Indian" = " Amer-Indian-Eskimo",
+                    "Asian" = " Asian-Pac-Islander",
                     "Other" = " Other")),
       selectInput("Sex", "Sex",
                   c("Female" = " Female",
@@ -67,7 +74,12 @@ shinyUI(fluidPage(
   
     
     mainPanel(
-      textOutput("incomeOutput")
+      actionButton("Submitbtn", "Submit"),
+      textOutput("incomeOutput"),
+      textOutput("inputOutput"),
+      mainPanel("The C5.0 model was trained and tested with k-fold crossvalidation. With data from UCI
+machine learning repository, Which can be found here: https://archive.ics.uci.edu/ml/datasets/Census+Income.
+                ")
       
     )
   )
